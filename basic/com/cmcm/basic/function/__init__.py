@@ -1,16 +1,16 @@
 import math
 
 
-def myabs(x):
-    if x > 0:
-        return x
-    elif x < 0:
-        return -x
+def my_abs(num):
+    if num > 0:
+        return num
+    elif num < 0:
+        return -num
     else:
         return None
 
 
-# print(myabs(0))
+# print(my_abs(0))
 
 def move(x, y, step, angle=math.pi / 6):
     nx = x + step * math.cos(angle)
@@ -18,10 +18,13 @@ def move(x, y, step, angle=math.pi / 6):
     return nx, ny
 
 
-print(move(100, 100, 60, math.pi / 6))
+# print(type(move(100, 100, 60, math.pi / 6)))
+# print(move(100, 100, 60, math.pi / 6))
 
 x, y = move(100, 100, 60)
-print(x, y)
+
+
+# print(x, y)
 
 
 def ar(*args):
@@ -29,6 +32,9 @@ def ar(*args):
     # retrun args
 
 
-print(ar(['a', 'b']))
+# print(ar(['a', 'b']))
 # result = ar(['a', 'b'])
 # print(result)
+
+result = [1, 2, 3]
+# print(result.__slots__)
