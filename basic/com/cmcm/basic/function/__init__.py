@@ -38,3 +38,20 @@ def ar(*args):
 
 result = [1, 2, 3]
 # print(result.__slots__)
+
+a = 100
+
+
+def modified_a():
+    global a
+    a = 200
+    print(a)
+
+
+modified_a()
+print(a)
+globals = globals()
+print(type(globals))
+for l in globals:
+    print(l)
+    print(globals[l])
