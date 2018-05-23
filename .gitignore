@@ -106,3 +106,4 @@ venv.bak/
 # 忽略pycharm自动生成的一些文件夹或者文件
 .idea
 .idea/*
+venv/*
