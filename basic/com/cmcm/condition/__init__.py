@@ -1,6 +1,7 @@
 # 学习一下Python中的条件判断和循环
-age = 20
-if age >= 6:
+age = input("请输入年龄：")
+age = int(age)
+if 18 > age >= 6:
     print('teenager')
 elif age >= 18:
     print('adult')

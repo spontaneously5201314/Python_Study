@@ -1,4 +1,5 @@
 d = {'Adam': 95, 'Lisa': 85, 'Bart': 59}
+print(type(d))
 print(d)
 print(d.__len__())
 print(len(d))
