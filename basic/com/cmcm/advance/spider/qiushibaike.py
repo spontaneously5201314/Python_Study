@@ -3,7 +3,7 @@ import requests
 from lxml import etree
 from pymongo import MongoClient
 
-client = MongoClient("127.0.0.1", 27017)
+client = MongoClient("127 .0.0.1", 27017)
 collection = client["duanzi"]["qiubai"]  # 前面取的是数据库,后面取的是集合
 
 
@@ -79,9 +79,29 @@ def collect_content(html_resp):
     return contents
 
 
+def save_pig(url):
+    # https://pic.qiushibaike.com/system/pictures/11138/111388717/medium/app111388717.jpg
+    # 获得图片的名字
+    # print(type(url))
+    name_first = str.rindex(url, "/", 0, len(url))
+    name_last = str.rindex(url, ".", 0, len(url))
+    pig_name = url[name_first:name_last]
+    # 获取图片的格式
+    suffix = url[(name_last + 1):len(url)]
+    response = requests.get(url)
+
+    pig = open("./qiubaipig/{}.{}".format(pig_name, suffix), "wb")
+    pig.write(response.content)
+    pig.flush()
+    pig.close()
+
+
 def save_contents(contents):
     for content in contents:
-        collection.insert(content)
+        # collection.insert(content)
+        # 5.保存下每个内容里面的图片,假设有的话
+        if content["content_img"] is not None:
+            save_pig(content["content_img"])
 
 
 def run():
